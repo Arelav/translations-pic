@@ -1,0 +1,16 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+}
+
+app-sidenav {
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-right: 2em;
+  display: flex;
+  background: #ffc7a1;
+}
+
+.content {
+  display: flex;
+}

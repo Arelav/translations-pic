@@ -8,7 +8,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i18n:all": "ngx-translate-extract --input ./src --output ./src/i18n/{en,es,de}.json --clean --sort --format namespaced-json",
+    "i18n:app": "ngx-translate-extract --input ./src/app --output ./src/i18n/app/{en,es,de}.json --patterns /*.html /*.ts --clean --sort --format namespaced-json",
+    "i18n:nav": "ngx-translate-extract --input ./src/app/nav --output ./src/i18n/nav/en.json --clean --sort --format namespaced-json",
+    "i18n:main": "ngx-translate-extract --input ./src/app/main --output ./src/i18n/main/en.json --clean --sort --format namespaced-json",
+    "extract": "npm run i18n:all"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +26,8 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@ngx-translate/core": "^8.0.0",
+    "@ngx-translate/http-loader": "^2.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
@@ -30,6 +37,7 @@
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
     "@angularclass/hmr": "^2.1.3",
+    "@biesbjerg/ngx-translate-extract": "^2.3.2",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",

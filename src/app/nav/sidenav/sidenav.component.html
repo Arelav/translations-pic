@@ -1,8 +1,7 @@
-<p>
+<h4>
   {{ 'SIDENAV' | translate }}
-</p>
-<ul>
-  <li><a href="">test</a></li>
-  <li><a href="">test</a></li>
-  <li><a href="">test</a></li>
-</ul>
+</h4>
+<nav>
+  <a routerLink="/inner" routerLinkActive="active">Show inner content</a>
+  <a routerLink="/lazy" routerLinkActive="active">Lazy loading content</a>
+</nav>

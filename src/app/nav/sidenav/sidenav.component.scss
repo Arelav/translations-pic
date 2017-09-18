@@ -1,3 +1,24 @@
 :host {
   flex-direction: column;
+  min-height: 200px;
+  padding-right: 2em;
+  margin-right: 2em;
+  display: flex;
+  background: #9471a1;
+}
+
+nav {
+  flex-direction: column;
+  a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    width: 100%;
+
+    &.active {
+      color: #9471a1;
+      background: #ffe2fb;
+    }
+  }
 }

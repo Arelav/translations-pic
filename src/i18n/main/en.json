@@ -1,0 +1,8 @@
+{
+	"MAIN": {
+		"INNER": {
+			"INNER_CONTENT": "Inner Content"
+		}
+	},
+	"MAIN_COMPONENT": "Main content"
+}

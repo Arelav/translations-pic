@@ -1,0 +1,9 @@
+{
+	"NAV": {
+		"SIDENAV": {
+			"SHOW_INNER_CONTENT": "Внутренний контент",
+			"SHOW_LAZY_LOADED_CONTENT": "Ленивая загрузка"
+		}
+	},
+	"SIDENAV": "Sidenav"
+}

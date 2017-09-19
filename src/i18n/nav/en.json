@@ -1,0 +1,9 @@
+{
+	"NAV": {
+		"SIDENAV": {
+			"SHOW_INNER_CONTENT": "Inner content",
+			"SHOW_LAZY_LOADED_CONTENT": "Lazy loaded content"
+		}
+	},
+	"SIDENAV": "Sidenav"
+}

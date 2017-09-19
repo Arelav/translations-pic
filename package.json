@@ -9,11 +9,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "i18n:all": "ngx-translate-extract --input ./src --output ./src/i18n/{en,ru}.json --clean --sort --format namespaced-json",
     "i18n:app": "ngx-translate-extract --input ./src/app --output ./src/i18n/app/{en,ru}.json --patterns /*.html /*.ts --clean --sort --format namespaced-json",
-    "i18n:nav": "ngx-translate-extract --input ./src/app/nav --output ./src/i18n/nav/en.json --clean --sort --format namespaced-json",
-    "i18n:main": "ngx-translate-extract --input ./src/app/main --output ./src/i18n/main/en.json --clean --sort --format namespaced-json",
-    "extract": "npm run i18n:all"
+    "i18n:nav": "ngx-translate-extract --input ./src/app/nav --output ./src/i18n/nav/{en,ru}.json --clean --sort --format namespaced-json",
+    "i18n:main": "ngx-translate-extract --input ./src/app/main --output ./src/i18n/main/{en,ru}.json --clean --sort --format namespaced-json",
+    "i18n:lazy": "ngx-translate-extract --input ./src/app/lazy --output ./src/i18n/lazy/{en,ru}.json --clean --sort --format namespaced-json",
+    "extract": "npm run i18n:app && npm run i18n:nav && npm run i18n:main && npm run i18n:lazy"
   },
   "private": true,
   "dependencies": {

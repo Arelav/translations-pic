@@ -5,19 +5,41 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClient } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule } from '@angular/common/http';
-import { NavModule } from './nav/nav.module';
 import { MainModule } from './main/main.module';
 import { NoContentModule } from './no-content/no-content.module';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './i18n/', '.json');
+export class LocalStLoader implements TranslateLoader {
+  constructor(private http: HttpClient, public prefix: string = '/i18n/', public suffix: string = '.json') {
+    console.log('constructor');
+  }
+
+  public getTranslation(lang: string): Observable<Object> {
+    const localTranslations = localStorage.getItem(`translations-${lang}`);
+    const $aggregatedTranslations = new Subject();
+
+    if (localTranslations) {
+      return Observable.of(JSON.parse(localTranslations));
+    } else {
+      const $tranlations = this.http.get(`${this.prefix}${lang}${this.suffix}`);
+
+      $tranlations.subscribe(translations => {
+        localStorage.setItem(`translations-${lang}`, JSON.stringify(translations));
+        $aggregatedTranslations.next(translations);
+      });
+
+      return $aggregatedTranslations;
+    }
+  }
 }
 
 @NgModule({
   declarations: [
     AppComponent,
+    LanguageSwitcherComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,13 +49,14 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
+        useClass: LocalStLoader,
         deps: [HttpClient],
       },
-      isolate: false
+      isolate: false,
     }),
     NoContentModule // Must be a last import to handle unknown routes
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

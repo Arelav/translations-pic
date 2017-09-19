@@ -2,6 +2,5 @@
 	"APP_COMPONENT": "App Component",
 	"LAZY_TEST": "Lazy Loading",
 	"MAIN_COMPONENT": "Main Component",
-	"SIDENAV": "Sidenav",
-	"TEST_TRANSLATIONS": "Test translations"
+	"SIDENAV": "Sidenav"
 }

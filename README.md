@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.1.
 
-## Extract translations file from source code
+## Extract translations files from source code
 Run `npm run extract`
 
 ## Development server
